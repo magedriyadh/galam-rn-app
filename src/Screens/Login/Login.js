@@ -1,13 +1,12 @@
 import React from 'react'
 import { View } from 'react-native';
 import { t } from 'react-native-tailwindcss'
-import { Text, Space, Button, Input } from '../components';
-import SlugInput from './SlugInput';
-import SlugStep from './SlugStep';
-
+import { Text, Space, Button, Input } from '../../components';
+import { useNavigation } from '@react-navigation/native';
 
 const Login = () => {
   const [step, setStep] = React.useState(0);
+  const { navigate } = useNavigation();
 
   return (
     <View
@@ -29,7 +28,10 @@ const Login = () => {
           <Space height={20} />
           <Input label="password" password />
           <Space height={20} />
-          <Button label="Sign In" />
+          <Button
+            label="Sign In"
+            onClick={() => navigate('Students')}
+          />
         </View>
       </View>
     </View>

@@ -1,8 +1,7 @@
 import React from 'react'
 import { View } from 'react-native';
 import { t } from 'react-native-tailwindcss'
-import Input from '../components/Input';
-import Text from '../components/Text';
+import { Text } from '../../components';
 import SlugInput from './SlugInput';
 
 

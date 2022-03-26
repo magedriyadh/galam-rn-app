@@ -8,13 +8,14 @@ const Button = ({
   label,
   startIcon,
   endIcon,
+  onClick,
 }) => {
   return (
     <TouchableHighlight
       style={[t.bgPrimary, t.h12, t.roundedFull]}
-      activeOpacity={0.2}
-      // underlayColor="#DDDDDD"
-      onPress={() => alert('Pressed!')}
+      // activeOpacity={0.9}
+      underlayColor="#073E90"
+      onPress={onClick}
     >
       <View style={[t.itemsCenter, t.hFull, t.flexRow, t.justifyBetween]}>
         <View style={[t.pX5]}>

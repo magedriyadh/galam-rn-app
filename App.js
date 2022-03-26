@@ -1,52 +1,37 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './src/Screens/Login';
+import Students from './src/Screens/Students';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
 const Stack = createNativeStackNavigator();
 
-
-export default function App() {
+const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Login"
-          component={Login}
-          options={{
-            headerShown: false,
-          }}
-        />
-      </Stack.Navigator>
-  </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Students"
+        >
+          <Stack.Screen
+            name="Login"
+            component={Login}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <Stack.Screen
+            name="Students"
+            component={Students}
+            tabBar={() => null}
+            options={{
+              headerShown: false,
+            }}
+          />        
+        </Stack.Navigator>
+    </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 
-const Home = ({ navigation }) => (
-  <View style={styles.container}>
-    <Text>Home</Text>
-    <Button
-      title="Go to Jane's profile"
-      onPress={() =>
-        navigation.navigate('Profile', { name: 'Jane' })
-      }
-    />
-    <StatusBar style="auto" />
-  </View>
-);
-
-const Profile = () => (
-  <View style={styles.container}>
-    <Text>Profile</Text>
-    <StatusBar style="auto" />
-  </View>
-);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
