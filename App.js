@@ -1,3 +1,4 @@
+import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './src/Screens/Login';
@@ -6,6 +7,7 @@ import StudentDetail from './src/Screens/StudentDetail';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { View, Text } from 'react-native';
 import useFonts from './src/hooks/useFonts';
+import useStorage from './src/hooks/useStorage';
 
 
 const Stack = createNativeStackNavigator();
@@ -13,7 +15,6 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   const { loaded } = useFonts()
 
-  console.log(loaded)
   if (!loaded) {
     return (
       <View>

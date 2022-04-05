@@ -45,7 +45,7 @@ const Text = ({
 }
 
 Text.defaultProps = {
-  size: 14,
+  size: 13,
   style: [],
   color: '001',
   weight: 'regular',

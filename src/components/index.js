@@ -7,6 +7,7 @@ import Box from './Box';
 import SearchBox from './SearchBox';
 import Header from './Header';
 import Tabs from './Tabs';
+import Table from './Table';
 
 
 export {
@@ -19,4 +20,5 @@ export {
   SearchBox,
   Header,
   Tabs,
+  Table,
 }

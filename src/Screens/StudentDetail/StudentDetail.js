@@ -1,27 +1,31 @@
 import React from 'react'
 import { Image, View } from 'react-native';
 import { t } from 'react-native-tailwindcss';
-import { Box, Header, Container, Text, Space, SearchBox, Tabs } from '../../components'
-import DetailsBox from './components/DetailsBox';
+import { Header, Container, Text, Space, SearchBox, Tabs } from '../../components'
+import Installments from './Installments';
+import Information from './Information';
+import TimeTable from './TimeTable';
+import useStorage from '../../hooks/useStorage';
 
 
 const tabs = [
   {
-    label: 'Tab 1',
-    key: 'tab_1',
+    label: 'Information',
+    key: 'information',
   },
   {
-    label: 'Tab 2',
-    key: 'tab_2',
+    label: 'Installments',
+    key: 'installments',
   },
   {
-    label: 'Tab 3',
-    key: 'tab_3',
+    label: 'Time table',
+    key: 'time_table',
   },
 ];
 
 const StudentDetail = () => {
-  const [activeTab, setActiveTab] = React.useState('tab_1')
+  const [activeTab, setActiveTab] = React.useState('time_table')
+  const [user, setUser] = useStorage("user", "Maged");
 
   return (
     <Container>
@@ -46,40 +50,18 @@ const StudentDetail = () => {
             <Tabs
               tabs={tabs}
               active={activeTab}
-              onPress={key => setActiveTab(key)}
+              onPress={key => {
+                setUser(key)
+                setActiveTab(key)
+              }}
             />
           </View>
         )}
       />
-      <Container.Body>
-        <DetailsBox
-          title="Header title"
-          list={[
-            {
-              label: 'Student full name',
-              value: 'Maged Riaydh'
-            },
-            {
-              label: 'Admission number',
-              value: '001'
-            },
-          ]}
-        />
-        <Space height={20} />
-        <DetailsBox
-          title="Header title"
-          list={[
-            {
-              label: 'Student full name',
-              value: 'Maged Riaydh'
-            },
-            {
-              label: 'Admission number',
-              value: '001'
-            },
-          ]}
-        />
-      </Container.Body>
+      {activeTab === 'information' && <Information />}
+      {activeTab === 'installments' && <Installments />}
+      {activeTab === 'time_table' && <TimeTable />}
+      
     </Container>
   )
 }
