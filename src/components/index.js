@@ -5,6 +5,8 @@ import Text from './Text';
 import Container from './Container';
 import Box from './Box';
 import SearchBox from './SearchBox';
+import Header from './Header';
+import Tabs from './Tabs';
 
 
 export {
@@ -15,4 +17,6 @@ export {
   Container,
   Box,
   SearchBox,
+  Header,
+  Tabs,
 }

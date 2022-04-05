@@ -18,8 +18,10 @@ const Container = ({
 
 export const Body = ({
   children,
+  isScrollView,
   ...props
 }) => {
+  // const ViewType = isScrollView ? ScrollView : View;
   return (
     <ScrollView
       style={[t.pX5, t.wFull, t.hFull]}

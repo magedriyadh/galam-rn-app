@@ -1,8 +1,7 @@
 import React from 'react'
 import { View, TouchableHighlight } from 'react-native'
 import { t } from 'react-native-tailwindcss'
-import Header from '../../components/Header'
-import { Box, Container, Text, Space, SearchBox } from '../../components'
+import { Box, Container, Text, Space, SearchBox, Header } from '../../components'
 import { data } from './helper';
 
 
