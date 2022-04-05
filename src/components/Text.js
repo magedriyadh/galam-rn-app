@@ -5,6 +5,7 @@ import { t } from 'react-native-tailwindcss';
 
 
 const fontSize = {
+  '12': t.textSm,
   '13': t.textBase,
   '14': t.textLg,
   '16': t.textXl,
@@ -21,12 +22,14 @@ const Text = ({
   style,
   size,
   color,
+  bold,
 }) => {
   return (
     <TextRN
       style={[
         fontSize[size],
         colors[color],
+        bold && t.fontBold,
         ...style,
       ]}
     >

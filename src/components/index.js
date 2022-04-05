@@ -4,6 +4,7 @@ import Space from './Space';
 import Text from './Text';
 import Container from './Container';
 import Box from './Box';
+import SearchBox from './SearchBox';
 
 
 export {
@@ -13,4 +14,5 @@ export {
   Text,
   Container,
   Box,
+  SearchBox,
 }

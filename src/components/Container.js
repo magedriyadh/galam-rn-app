@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StatusBar } from 'react-native'
+import { View, StatusBar, ScrollView } from 'react-native'
 import { t } from 'react-native-tailwindcss'
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -18,11 +18,15 @@ const Container = ({
 
 export const Body = ({
   children,
+  ...props
 }) => {
   return (
-    <View style={[t.pX5, t.wFull, t.hFull]}>
+    <ScrollView
+      style={[t.pX5, t.wFull, t.hFull]}
+      {...props}
+     >
       {children}
-    </View>
+    </ScrollView>
   )
 }
 

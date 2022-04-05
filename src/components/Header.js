@@ -3,19 +3,26 @@ import { View } from 'react-native'
 import { t } from 'react-native-tailwindcss'
 import Text from './Text'
 import ArrowLeft from '../../assets/arrowLeft.svg'
+import BarsIcon from '../../assets/menu_open.svg'
 
-const Header = () => {
+const Header = ({
+  content,
+}) => {
+  
   return (
-    <View style={[t.flexRow, t.justifyBetween, t.itemsCenter, t.h16, t.bgWhite, t.shadowMd, t.mB10]}>
-      <View style={[t.pX5]}>
-        <ArrowLeft />
+    <View style={[t.bgWhite, t.shadowMd, t.mB6]}>
+      <View style={[t.flexRow, t.justifyBetween, t.itemsCenter, t.h16, t.borderB, t.borderGray200]}>
+        <View style={[t.pX5]}>
+          <ArrowLeft />
+        </View>
+        <View>
+          <Text size="16" label="Galam" />
+        </View>
+        <View style={[t.pX5]}>
+          <BarsIcon />
+        </View>
       </View>
-      <View>
-        <Text label="label" />
-      </View>
-      <View style={[t.pX5]}>
-        <Text label="label" />
-      </View>
+      {content}
     </View>
   )
 }
