@@ -5,7 +5,6 @@ import { Header, Container, Text, Space, SearchBox, Tabs } from '../../component
 import Installments from './Installments';
 import Information from './Information';
 import TimeTable from './TimeTable';
-import useStorage from '../../hooks/useStorage';
 
 
 const tabs = [
@@ -25,7 +24,6 @@ const tabs = [
 
 const StudentDetail = () => {
   const [activeTab, setActiveTab] = React.useState('time_table')
-  const [user, setUser] = useStorage("user", "Maged");
 
   return (
     <Container>
@@ -51,7 +49,7 @@ const StudentDetail = () => {
               tabs={tabs}
               active={activeTab}
               onPress={key => {
-                setUser(key)
+                // setUser(key)
                 setActiveTab(key)
               }}
             />

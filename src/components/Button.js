@@ -13,6 +13,7 @@ const Button = ({
   endIcon,
   onClick,
   variant,
+  disabled,
 }) => {
   return (
     <TouchableHighlight
@@ -20,6 +21,7 @@ const Button = ({
       // activeOpacity={0.9}
       underlayColor="#073E90"
       onPress={onClick}
+      disabled={disabled}
     >
       <View style={[t.itemsCenter, t.hFull, t.flexRow, t.justifyBetween]}>
         <View style={[t.pX5]}>

@@ -5,6 +5,7 @@ import { Text } from '../../components';
 
 const SlugInput = ({
   onChagne,
+  autoCapitalize,
 }) => {
   const [value, setValue] = React.useState('');
 
@@ -20,6 +21,7 @@ const SlugInput = ({
               onChagne(value)
             }
           }}
+          autoCapitalize={autoCapitalize}
           defaultValue={value}
         />
       </View>

@@ -7,7 +7,7 @@ import StudentDetail from './src/Screens/StudentDetail';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { View, Text } from 'react-native';
 import useFonts from './src/hooks/useFonts';
-import useStorage from './src/hooks/useStorage';
+// import useStorage from './src/hooks/useStorage';
 
 
 const Stack = createNativeStackNavigator();

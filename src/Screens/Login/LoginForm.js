@@ -4,11 +4,17 @@ import { View } from 'react-native';
 import { t } from 'react-native-tailwindcss'
 import { Text, Space, Button, Input } from '../../components';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { getSlug } from '../../hooks/useStorage';
 
 const LoginForm = () => {
+  const [slugName, setSlugName] = React.useState();
   const { navigate } = useNavigation();
   const insets = useSafeAreaInsets();
-  console.log(insets)
+  
+  React.useEffect(() => {
+    getSlug().then(val => setSlugName(val));
+  }, [])
+  
   return (
     <View style={[t.wFull, t.justifyCenter, t.pX6]}>
       <Space height={40} />
@@ -19,7 +25,7 @@ const LoginForm = () => {
       <View style={[t.itemsCenter]}>
         <View style={[t.w16, t.h16, t.bgBlack, t.rounded, t.bgGray400]}></View>
         <Space height={20} />
-        <Text size="16" label="Slug Nmae" style={[t.textBlack]} />
+        <Text size="16" label={slugName} style={[t.textBlack]} />
       </View>
       <Space height={40} />
       <View style={{ paddingTop: insets.top }} >

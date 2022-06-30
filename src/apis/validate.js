@@ -1,12 +1,16 @@
 import React from 'react'
+import { Alert } from "react-native";
+
 import useApi from './useApi'
 
 const validate = () => {
   const [result, setResult] = React.useState({});
+  const [error, setError] = React.useState({});
   const { mutation } = useApi();
 
   const post = (slug) => {
     setResult(r => ({ ...r, fetching: true }))
+    setError({})
 
     return new Promise((resolve, reject) => {
       mutation('/schools/validate', 'POST', {
@@ -17,8 +21,8 @@ const validate = () => {
           setResult(r => ({ ...r, fetching: false, school: data }))
         })
         .catch(error => {
-          setResult(r => ({ ...r, fetching: false, error }))
-          reject(error)
+          Alert.alert('خطأ', error.response.data.error)
+          setResult(r => ({ ...r, fetching: false }))
         })
     })
   }
@@ -26,6 +30,7 @@ const validate = () => {
   return {
     post,
     result,
+    error,
   }
 }
 

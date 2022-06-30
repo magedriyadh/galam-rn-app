@@ -3,14 +3,14 @@ import axios from 'axios';
 
 const maxAge = 20 * 1000;
 
-const http = axios.create({
+export const http = axios.create({
   baseURL: 'https://api.galam.co/v1',
   headers: {
     'Content-Type': 'application/json',
     Accept: 'application/json',
     Authorization: '',
     slug: '',
-    locale: 'en',
+    locale: 'ar',
   }
   // adapter: cacheAdapterEnhancer(axios.defaults.adapter, {
   //   enabledByDefault: false,

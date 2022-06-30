@@ -1,31 +1,32 @@
 import React from 'react'
 import { View } from 'react-native';
 import { t } from 'react-native-tailwindcss'
-import { useNavigation } from '@react-navigation/native';
 import LoginForm from './LoginForm';
 import SlugStep from './SlugStep';
 import validate from '../../apis/validate';
+import { getSlug, setSlug } from '../../hooks/useStorage';
 
 
 const Login = () => {
-  const [step, setStep] = React.useState(0);
-  const { result, post } = validate();
+  const [step, setStep] = React.useState(1);
+  const { result, post, error } = validate();
 
   const handleSubmit = (value) => {
     if (step === 0) {
       post(value)
         .then((data) => {
           setStep(1)
-          console.log(data, 'data')
         })
     }
   }
-
-  console.log(result)
-
+    
+  getSlug().then(val => {
+    console.log(val, 'val')
+  });
+  
   return (
     <View style={[t.hFull, t.wFull]}>
-      {step === 0 && <SlugStep onSubmit={handleSubmit} />}
+      {step === 0 && <SlugStep onSubmit={handleSubmit} fetching={result?.fetching || false} />}
       {step === 1 && <LoginForm />}
     </View>
   )

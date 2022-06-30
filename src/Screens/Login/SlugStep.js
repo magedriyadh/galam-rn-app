@@ -7,25 +7,26 @@ import SlugInput from './SlugInput';
 
 
 const SlugStep = ({
-  onSubmit
+  onSubmit,
+  fetching,
 }) => {
   const [slug, setSlug] = React.useState();
-  const { result, post } = validate();
 
   return (
     <View style={[t.hFull, t.justifyCenter, t.itemsCenter, t.bgPrimary]}>
       <View style={[t.wFull, t.pX12]}>
         <Text size={18} color="white" label="Login" />
-        <SlugInput onChagne={t => setSlug(t)} />
+        <SlugInput onChagne={t => setSlug(t)} autoCapitalize="none" />
         <Space height={30} />
         <Button
           variant="outlined"
           label="Submit"
           onClick={() => onSubmit(slug)}
+          disabled={fetching}
         />
       </View>
     </View>
   )
 }
 
-export default SlugStep
+export default React.memo(SlugStep)
