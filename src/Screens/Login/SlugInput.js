@@ -3,7 +3,9 @@ import { TextInput, View } from 'react-native';
 import { t } from 'react-native-tailwindcss';
 import { Text } from '../../components';
 
-const SlugInput = () => {
+const SlugInput = ({
+  onChagne,
+}) => {
   const [value, setValue] = React.useState('');
 
   return (
@@ -11,8 +13,13 @@ const SlugInput = () => {
       <View style={[t.flexGrow]}>
         <TextInput
           style={[t.h10, t.textWhite, t.textRight, t.textXl]}
-          placeholder="Type here to translate!"
-          onChangeText={value => setValue(value)}
+          placeholder="School Name"
+          onChangeText={value => {
+            setValue(value);
+            if (onChagne) {
+              onChagne(value)
+            }
+          }}
           defaultValue={value}
         />
       </View>
@@ -20,7 +27,7 @@ const SlugInput = () => {
         <Text
           size="16"
           label=".galam.co"
-          color="#9CB5DB"
+          color="white"
         />
       </View>
     </View>

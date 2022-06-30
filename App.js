@@ -29,7 +29,7 @@ const App = () => {
     <SafeAreaProvider>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="StudentDetail"
+          initialRouteName="Login"
         >
           <Stack.Screen
             name="Login"

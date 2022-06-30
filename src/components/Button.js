@@ -3,16 +3,20 @@ import { View, TouchableHighlight } from 'react-native';
 import { t } from 'react-native-tailwindcss';
 import Text from './Text';
 
+const btnVariant = {
+  outlined: [t.border, t.borderWhite]
+}
 
 const Button = ({
   label,
   startIcon,
   endIcon,
   onClick,
+  variant,
 }) => {
   return (
     <TouchableHighlight
-      style={[t.bgPrimary, t.h12, t.roundedFull]}
+      style={[t.bgPrimary, t.h12, t.roundedFull, btnVariant[variant]]}
       // activeOpacity={0.9}
       underlayColor="#073E90"
       onPress={onClick}
