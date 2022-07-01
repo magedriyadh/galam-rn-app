@@ -1,32 +1,37 @@
 import React from 'react'
 import { View } from 'react-native';
+import { useDispatch } from 'react-redux';
 import { t } from 'react-native-tailwindcss'
+import { getSlug, setSlug } from '../../hooks/useStorage';
+import { schoolValidate } from '../../redux/schoolValidate/action';
 import LoginForm from './LoginForm';
 import SlugStep from './SlugStep';
-import validate from '../../apis/validate';
-import { getSlug, setSlug } from '../../hooks/useStorage';
 
 
 const Login = () => {
   const [step, setStep] = React.useState(1);
-  const { result, post, error } = validate();
+  const dispatch = useDispatch();
 
   const handleSubmit = (value) => {
     if (step === 0) {
-      post(value)
-        .then((data) => {
+      dispatch(schoolValidate())
+        .then(() => {
           setStep(1)
         })
     }
   }
     
-  getSlug().then(val => {
-    console.log(val, 'val')
-  });
+  // getSlug().then(val => {
+  //   console.log(val, 'val')
+  // });
   
+  React.useEffect(() => {
+    dispatch(schoolValidate('maged'))
+  }, []);
+
   return (
     <View style={[t.hFull, t.wFull]}>
-      {step === 0 && <SlugStep onSubmit={handleSubmit} fetching={result?.fetching || false} />}
+      {step === 0 && <SlugStep onSubmit={handleSubmit} fetching={false} />}
       {step === 1 && <LoginForm />}
     </View>
   )

@@ -8,7 +8,8 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { View, Text } from 'react-native';
 import useFonts from './src/hooks/useFonts';
 // import useStorage from './src/hooks/useStorage';
-
+import { store } from './src/redux/store'
+import { Provider } from 'react-redux'
 
 const Stack = createNativeStackNavigator();
 
@@ -26,37 +27,39 @@ const App = () => {
   }
 
   return (
-    <SafeAreaProvider>
-      <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="Login"
-        >
-          <Stack.Screen
-            name="Login"
-            component={Login}
-            options={{
-              headerShown: false,
-            }}
-          />
-          <Stack.Screen
-            name="Students"
-            component={Students}
-            tabBar={() => null}
-            options={{
-              headerShown: false,
-            }}
-          />        
-          <Stack.Screen
-            name="StudentDetail"
-            component={StudentDetail}
-            tabBar={() => null}
-            options={{
-              headerShown: false,
-            }}
-          />        
-        </Stack.Navigator>
-    </NavigationContainer>
-    </SafeAreaProvider>
+    <Provider store={store}>
+      <SafeAreaProvider>
+        <NavigationContainer>
+          <Stack.Navigator
+            initialRouteName="Login"
+          >
+            <Stack.Screen
+              name="Login"
+              component={Login}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="Students"
+              component={Students}
+              tabBar={() => null}
+              options={{
+                headerShown: false,
+              }}
+            />        
+            <Stack.Screen
+              name="StudentDetail"
+              component={StudentDetail}
+              tabBar={() => null}
+              options={{
+                headerShown: false,
+              }}
+            />        
+          </Stack.Navigator>
+      </NavigationContainer>
+      </SafeAreaProvider>
+    </Provider>
   );
 }
 
