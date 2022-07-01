@@ -28,7 +28,7 @@ export const setToken = async (value) => {
 export const getToken = async () => {
   try {
     const value = await AsyncStorage.getItem('@token')
-    return !value ? '' : value;
+    return value;
   } catch(e) {
     console.error(e)
   }

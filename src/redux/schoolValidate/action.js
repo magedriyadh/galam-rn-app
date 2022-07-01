@@ -3,5 +3,13 @@ import { http } from '../../apis/useApi'
 
 export const schoolValidate = createAsyncThunk(
   'schools/validate',
-  slug => http.post('/schools/validate', { slug })
+  async (slug, { rejectWithValue }) => {
+    try {
+      const response = await http.post('/schools/validate', { slug })
+      http.defaults.headers.common['slug'] = response.data.data.slug;
+      return response;
+    } catch (err) {
+      return rejectWithValue(err.response.data)
+    }
+  }
 )

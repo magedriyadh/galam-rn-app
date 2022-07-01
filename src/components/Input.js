@@ -8,6 +8,7 @@ const Input = ({
   placeholder,
   label,
   password,
+  onChange,
   ...props
 }) => {
   const [value, setValue] = React.useState('');
@@ -20,7 +21,10 @@ const Input = ({
         {...props}
         style={[ t.border, t.wFull, t.h10, t.rounded, t.borderG003, t.pX3]}
         placeholder={placeholder}
-        onChangeText={value => setValue(value)}
+        onChangeText={value => {
+          setValue(value);
+          onChange(value);
+        }}
         defaultValue={value}
         secureTextEntry={password}
       />

@@ -1,6 +1,7 @@
 import React from 'react'
 import { View } from 'react-native';
 import { t } from 'react-native-tailwindcss'
+import { useSelector } from 'react-redux';
 import validate from '../../apis/validate';
 import { Text, Button, Space } from '../../components';
 import SlugInput from './SlugInput';
@@ -8,9 +9,9 @@ import SlugInput from './SlugInput';
 
 const SlugStep = ({
   onSubmit,
-  fetching,
 }) => {
   const [slug, setSlug] = React.useState();
+  const { fetching } = useSelector(state => state.schools)
 
   return (
     <View style={[t.hFull, t.justifyCenter, t.itemsCenter, t.bgPrimary]}>
