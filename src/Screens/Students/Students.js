@@ -1,12 +1,18 @@
 import React from 'react'
 import { View, TouchableHighlight } from 'react-native'
 import { t } from 'react-native-tailwindcss'
+import { useDispatch } from 'react-redux';
 import { Box, Container, Text, Space, SearchBox, Header } from '../../components'
+import { logout } from '../../redux/auth/action';
 import { data } from './helper';
 
 
 const Students = () => {
-  const count = data.length;
+  const dispatch = useDispatch();
+
+  // React.useEffect(() => {
+  //   dispatch(logout())
+  // }, [])
 
   return (
     <Container>

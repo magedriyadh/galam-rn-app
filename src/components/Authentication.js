@@ -3,11 +3,13 @@ import { useNavigation } from '@react-navigation/native';
 import { getToken } from '../hooks/useStorage';
 import { View, ActivityIndicator } from 'react-native';
 import { t } from 'react-native-tailwindcss';
+import { useSelector } from 'react-redux';
 
 const Authentication = ({
   children
 }) => {
   const [tokenLoading, setTokenLoading] = React.useState(true);
+  const { user } = useSelector(state => state.auth);
   const { navigate } = useNavigation();
 
   React.useEffect(() => {
@@ -21,6 +23,12 @@ const Authentication = ({
       }
     })
   }, [])
+
+  React.useEffect(() => {
+    if (!tokenLoading && !user.name) {
+      navigate('Login');
+    }
+  }, [user])
 
   return (
     <>

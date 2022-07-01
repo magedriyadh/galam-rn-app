@@ -33,3 +33,12 @@ export const getToken = async () => {
     console.error(e)
   }
 }
+
+export const removeToken = async () => {
+  try {
+    const value = await AsyncStorage.removeItem('@token')
+    return value;
+  } catch(e) {
+    console.error(e)
+  }
+}

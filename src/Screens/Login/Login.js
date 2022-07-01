@@ -43,11 +43,11 @@ const Login = () => {
     }
   }, [error])
 
-  React.useEffect(() => {
-    if (user.name) {
-      navigate('Students')
-    }
-  }, [user])
+  // React.useEffect(() => {
+  //   if (user.name) {
+  //     navigate('Students')
+  //   }
+  // }, [user])
 
   return (
     <View style={[t.hFull, t.wFull]}>

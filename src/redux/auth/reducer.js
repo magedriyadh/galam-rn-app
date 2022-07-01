@@ -20,9 +20,13 @@ const slice = createSlice({
     },
     [actions.login.rejected]: (state, { payload }) => {
       state.error = payload;
-      console.log(payload)
       state.fetching = false;
-    }
+    },
+    // logout
+    [actions.logout.fulfilled]: (state) => {
+      state.user = {};
+      state.fetching = false;
+    },
   }
 });
 
