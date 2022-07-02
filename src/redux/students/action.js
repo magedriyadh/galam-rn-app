@@ -13,3 +13,15 @@ export const studentsList = createAsyncThunk(
     }
   }
 )
+
+export const studentLoad = createAsyncThunk(
+  'students/detail',
+  async (id, { rejectWithValue }) => {
+    try {
+      const response = await http.get(`/students/${id}`)
+      return response;
+    } catch (err) {
+      return rejectWithValue(err.response.data)
+    }
+  }
+)

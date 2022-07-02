@@ -1,6 +1,5 @@
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
-import { getToken } from '../hooks/useStorage';
 import { View, ActivityIndicator } from 'react-native';
 import { t } from 'react-native-tailwindcss';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,6 +10,7 @@ const Authentication = ({
 }) => {
   const { user, fetching } = useSelector(state => state.auth);
   const { navigate } = useNavigation();
+
   const dispatch = useDispatch();
 
   React.useEffect(() => {
@@ -29,6 +29,8 @@ const Authentication = ({
       )}
     </>
   );
+
+  return children
 }
 
 export default Authentication

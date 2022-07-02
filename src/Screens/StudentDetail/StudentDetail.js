@@ -5,7 +5,9 @@ import { Header, Container, Text, Space, SearchBox, Tabs } from '../../component
 import Installments from './Installments';
 import Information from './Information';
 import TimeTable from './TimeTable';
-
+import { useRoute } from '@react-navigation/native';
+import { useDispatch, useSelector } from 'react-redux';
+import { studentLoad } from '../../redux/students/action';
 
 const tabs = [
   {
@@ -23,24 +25,33 @@ const tabs = [
 ];
 
 const StudentDetail = () => {
-  const [activeTab, setActiveTab] = React.useState('time_table')
+  const [activeTab, setActiveTab] = React.useState('information')
+  const { student } = useSelector(state => state.students);
+  const { params } = useRoute();
+  const dispatch = useDispatch();
 
+  React.useEffect(() => {
+    dispatch(studentLoad(params?.student.id))
+  }, []);
+
+  console.log(student)
   return (
     <Container>
       <Header
+        withClickBack
         content={(
           <View>
             <View style={[t.flexRow, t.itemsCenter, t.pY2, t.pX5]}>
               <Image
-                style={[t.w20, t.h20, t.roundedFull, t.border, t.borderBlack, t.overflowHidden]}
+                style={[t.w20, t.h20, t.roundedFull, t.border, t.borderGray300, t.overflowHidden]}
                 resizeMode={'cover'}
                 source={{
-                  url: 'http://api.dev.galam.co/images/missing.png'
+                  url: student.avatar_url
                 }}
               />
               <Space width={20} />
               <View>
-                <Text size={16} weight="medium" label="Maged Riyadh" />
+                <Text size={16} weight="medium" label={student.name} />
                 <Text label="001" />
               </View>
             </View>

@@ -31,7 +31,7 @@ const Students = () => {
               <TouchableHighlight
                 activeOpacity={0.6}
                 underlayColor="#fff"
-                onPress={() => navigate('StudentDetail')}
+                onPress={() => navigate('StudentDetail', { student })}
                 key={i}
               >
                 <View

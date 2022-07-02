@@ -1,19 +1,28 @@
 import React from 'react'
-import { View } from 'react-native'
+import { View, TouchableOpacity } from 'react-native'
 import { t } from 'react-native-tailwindcss'
-import Text from './Text'
-import ArrowLeft from '../../assets/arrowLeft.svg'
-import BarsIcon from '../../assets/menu_open.svg'
+import Text from '../Text'
+import ArrowLeft from '../../../assets/arrowLeft.svg'
+import BarsIcon from '../../../assets/menu_open.svg'
+import { useNavigation } from '@react-navigation/native'
 
 const Header = ({
   content,
+  withClickBack
 }) => {
+  const { goBack } = useNavigation()
   
   return (
     <View style={[t.bgWhite, t.shadowMd, t.mB6]}>
       <View style={[t.flexRow, t.justifyBetween, t.itemsCenter, t.h16, t.borderB, t.borderGray200]}>
         <View style={[t.pX5]}>
-          <ArrowLeft />
+          {withClickBack && (
+            <TouchableOpacity
+              onPress={() => goBack()}
+            >
+              <ArrowLeft />
+            </TouchableOpacity>
+          )}
         </View>
         <View>
           <Text size="16" label="Galam" />
