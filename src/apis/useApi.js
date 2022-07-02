@@ -4,7 +4,7 @@ import axios from 'axios';
 const maxAge = 20 * 1000;
 
 const http = axios.create({
-  baseURL: 'https://api.galam.co/v1',
+  baseURL: 'http://api.dev.galam.co/v1',
   headers: {
     'Content-Type': 'application/json',
     Accept: 'application/json',
@@ -18,13 +18,13 @@ const http = axios.create({
   // }),
 });
 
-// http.interceptors.request.use(function (config) {
-//   // Do something before request is sent
-//   return config;
-// }, function (error) {
-//   // Do something with request error
-//   return Promise.reject(error);
-// });
+http.interceptors.request.use(function (config) {
+  // Do something before request is sent
+  return config;
+}, function (error) {
+  // Do something with request error
+  return Promise.reject(error);
+});
 
 // http.interceptors.response.use((response) => {
 //   return response;
@@ -32,6 +32,26 @@ const http = axios.create({
 //   return Promise.reject(err); // i didn't have this line before
 // });
 
+export const api = async (
+  data,
+  { rejectWithValue }
+) => async (
+  url,
+  method = 'GET',
+) => {
+  console.log(data, 'data')
+  try {
+    const response = await http({
+      url,
+      method,
+      data
+    })
+
+    return response;
+  } catch (err) {
+    return rejectWithValue(err.response.data)
+  }
+}
 
 const useApi = (url, params) => {
   const [fetching, setFetching] = React.useState(true)

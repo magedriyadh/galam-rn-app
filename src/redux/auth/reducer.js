@@ -22,6 +22,19 @@ const slice = createSlice({
       state.error = payload;
       state.fetching = false;
     },
+    // get User
+    [actions.getUser.pending]: (state, action) => {
+      state.fetching = true;
+      state.error = {};
+    },
+    [actions.getUser.fulfilled]: (state, { payload }) => {
+      state.user = payload.data.data;
+      state.fetching = false;
+    },
+    [actions.getUser.rejected]: (state, { payload }) => {
+      state.error = payload;
+      state.fetching = false;
+    },
     // logout
     [actions.logout.fulfilled]: (state) => {
       state.user = {};

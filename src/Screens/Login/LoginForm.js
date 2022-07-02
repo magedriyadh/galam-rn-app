@@ -19,8 +19,8 @@ const LoginForm = () => {
     dispatch(login({
       login: username,
       password: password,
-      access_from: 2,
-      user_type: 'employee',
+      access_from: 3,
+      user_type: 'guardian',
     }))
   }
 

@@ -29,39 +29,37 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <SafeAreaProvider>
-        <NavigationContainer>
-          <Authentication>
-            <Stack.Navigator
-              initialRouteName="Login"
-            >
-              <Stack.Screen
-                name="Login"
-                component={Login}
-                options={{
-                  headerShown: false,
-                }}
-              />
-              <Stack.Screen
-                name="Students"
-                component={Students}
-                tabBar={() => null}
-                options={{
-                  headerShown: false,
-                }}
-              />        
-              <Stack.Screen
-                name="StudentDetail"
-                component={StudentDetail}
-                tabBar={() => null}
-                options={{
-                  headerShown: false,
-                }}
-              />        
-            </Stack.Navigator>
-          </Authentication>
+      <NavigationContainer>
+        <Authentication>
+          <Stack.Navigator
+            initialRouteName="Login"
+          >
+            <Stack.Screen
+              name="Login"
+              component={Login}
+              options={{
+                headerShown: false,
+              }}
+            />
+            <Stack.Screen
+              name="Students"
+              component={Students}
+              tabBar={() => null}
+              options={{
+                headerShown: false,
+              }}
+            />        
+            <Stack.Screen
+              name="StudentDetail"
+              component={StudentDetail}
+              tabBar={() => null}
+              options={{
+                headerShown: false,
+              }}
+            />        
+          </Stack.Navigator>
+        </Authentication>
       </NavigationContainer>
-      </SafeAreaProvider>
     </Provider>
   );
 }

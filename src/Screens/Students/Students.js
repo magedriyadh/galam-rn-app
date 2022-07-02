@@ -1,18 +1,22 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react'
-import { View, TouchableHighlight } from 'react-native'
+import { View, TouchableHighlight, Image } from 'react-native'
 import { t } from 'react-native-tailwindcss'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Box, Container, Text, Space, SearchBox, Header } from '../../components'
 import { logout } from '../../redux/auth/action';
-import { data } from './helper';
+import { studentsList } from '../../redux/students/action';
 
 
 const Students = () => {
   const dispatch = useDispatch();
-
-  // React.useEffect(() => {
-  //   dispatch(logout())
-  // }, [])
+  const { navigate } = useNavigation()
+  const { students } = useSelector(state => state.students)
+  
+  React.useEffect(() => {
+    // dispatch(logout())
+    dispatch(studentsList())
+  }, [])
 
   return (
     <Container>
@@ -23,11 +27,11 @@ const Students = () => {
       />
       <Container.Body>
         <Box paddingX>
-            {data.map((student, i) => (
+            {students.map((student, i) => (
               <TouchableHighlight
                 activeOpacity={0.6}
                 underlayColor="#fff"
-                onPress={() => alert('Pressed!')}
+                onPress={() => navigate('StudentDetail')}
                 key={i}
               >
                 <View
@@ -39,15 +43,23 @@ const Students = () => {
                     t.borderGray400
                   ]}
                 >
-                  <View style={[t.w12, t.h12, t.bgBlue100, t.roundedFull]} />
+                  <Image
+                    style={[t.w12, t.h12, t.bgBlue100, t.roundedFull, t.border, t.borderGray200]}
+                    source={{
+                      uri: student.avatar_url,
+                    }}
+                  />
+                  {/* <View style={[t.w12, t.h12, t.bgBlue100, t.roundedFull]} /> */}
                   <View style={[t.mX5]}>
                     <Text size="14" label={student.name} bold />
                     <Space height={5} />
                     <View style={[t.flexRow]}>
-                      <Text size="12" label={student.code} />
+                      <Text size="12" label={student.admission_number} />
                       <Text size="12" label="," />
                       <Space width={5} />
                       <Text size="12" label={student.section} />
+                      <Text size="12" label="," />
+                      <Text size="12" label={student.level} />
                     </View>
                   </View>
                 </View>
