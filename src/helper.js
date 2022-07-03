@@ -18,7 +18,6 @@ export const handleAction = ({
         })
         return response;
       } catch (err) {
-        console.log(err.response, 'err')
         return rejectWithValue(err.response.data)
       }
     }

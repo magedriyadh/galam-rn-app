@@ -29,7 +29,6 @@ const slice = createSlice({
       state.error = {};
     },
     [actions.studentLoad.fulfilled]: (state, { payload }) => {
-      console.log(payload.data.data, 'payload')
       state.student = payload.data.data.student;
       state.fetching = false;
     },

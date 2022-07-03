@@ -7,6 +7,7 @@ import DetailsBox from './components/DetailsBox'
 
 const Information = () => {
   const { student } = useSelector(state => state.students);
+  const guardian = student?.guardian || {};
 
   return (
     <Container.Body>
@@ -21,14 +22,10 @@ const Information = () => {
             label: 'Admission number',
             value: student.admission_number
           },
-          {
-            label: 'Civil No',
-            value: student.national_id
-          },
-          {
-            label: 'Gender',
-            value: student.gender
-          },
+          // {
+          //   label: 'Gender',
+          //   value: student.gender
+          // },
           {
             label: 'Nationality',
             value: student.nationality?.name
@@ -50,25 +47,46 @@ const Information = () => {
             value: student.birth_place
           },
           {
-            label: 'Has registered before',
-            value: student.has_registered_before
+            label: 'Educational level',
+            value: `${student.section}, ${student.level}`
+          },
+          {
+            label: 'Location',
+            value: student.location?.name,
+          },
+          {
+            label: 'Address',
+            value: student.address,
           },
         ]}
       />
       <Space height={20} />
       <DetailsBox
-        title="Header title"
+        title="Guardian Information"
         list={[
           {
-            label: 'Student full name',
-            value: 'Maged Riaydh'
+            label: 'Full Parent Name',
+            value: guardian.name
           },
           {
-            label: 'Admission number',
-            value: '001'
+            label: 'Email',
+            value: guardian.email
+          },
+          {
+            label: "Father's number",
+            value: guardian.father_mobile,
+          },
+          {
+            label: "Mother's number",
+            value: guardian.mother_mobile,
+          },
+          {
+            label: 'Emergency number',
+            value: guardian.emergency_number,
           },
         ]}
       />
+      <Space height={40} />
     </Container.Body>
   )
 }

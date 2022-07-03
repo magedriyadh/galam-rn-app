@@ -39,7 +39,6 @@ export const api = async (
   url,
   method = 'GET',
 ) => {
-  console.log(data, 'data')
   try {
     const response = await http({
       url,

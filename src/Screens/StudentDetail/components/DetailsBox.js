@@ -14,7 +14,7 @@ const DetailsBox = ({
       <Space height={10} />
       <View style={[t.h1, t.borderB, t.borderG003]} />
       <Space height={20} />
-      {list.map((data, i) => (
+      {list.filter(f => f.value).map((data, i) => (
         <View style={[t.flexRow, t.pY3]} key={i}>
           <Text size="12" color="002" label={data.label} style={[t.flex1]} />
           <Space width={10} />

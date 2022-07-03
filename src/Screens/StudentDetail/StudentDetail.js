@@ -34,7 +34,6 @@ const StudentDetail = () => {
     dispatch(studentLoad(params?.student.id))
   }, []);
 
-  console.log(student)
   return (
     <Container>
       <Header
