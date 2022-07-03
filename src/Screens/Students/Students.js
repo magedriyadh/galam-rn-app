@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Box, Container, Text, Space, SearchBox, Header } from '../../components'
 import { logout } from '../../redux/auth/action';
 import { studentsList } from '../../redux/students/action';
+import { setStudent } from '../../redux/students/reducer';
 
 
 const Students = () => {
@@ -29,10 +30,13 @@ const Students = () => {
         <Box paddingX>
             {students.map((student, i) => (
               <TouchableHighlight
+                key={i}
                 activeOpacity={0.6}
                 underlayColor="#fff"
-                onPress={() => navigate('StudentDetail', { student })}
-                key={i}
+                onPress={() => {
+                  dispatch(setStudent(student))
+                  navigate('StudentDetail')
+                }}
               >
                 <View
                   style={[

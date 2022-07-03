@@ -9,7 +9,11 @@ const slice = createSlice({
     fetching: false,
     error: {},
   },
-  reducers: {},
+  reducers: {
+    setStudent: (state, action) => {
+      state.student = action.payload;
+    }
+  },
   extraReducers: {
     [actions.studentsList.pending]: (state) => {
       state.fetching = true;
@@ -38,6 +42,8 @@ const slice = createSlice({
     }
   }
 });
+
+export const { setStudent } = slice.actions
 
 export default slice.reducer;
 

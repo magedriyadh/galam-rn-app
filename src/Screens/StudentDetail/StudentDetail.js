@@ -27,11 +27,10 @@ const tabs = [
 const StudentDetail = () => {
   const [activeTab, setActiveTab] = React.useState('information')
   const { student } = useSelector(state => state.students);
-  const { params } = useRoute();
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(studentLoad(params?.student.id))
+    dispatch(studentLoad(student.id || 41))
   }, []);
 
   return (
