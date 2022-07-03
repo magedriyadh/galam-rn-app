@@ -6,6 +6,7 @@ import { getSlug } from '../../hooks/useStorage';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../redux/auth/action';
 import { useNavigation } from '@react-navigation/native';
+import KeyboardArea from '../../components/KeyboardArea';
 
 const LoginForm = () => {
   const [username, setUsername] = React.useState();
@@ -41,14 +42,15 @@ const LoginForm = () => {
   }, [user])
 
   return (
-    <View style={[t.wFull, t.hFull, t.justifyCenter, t.pX6]}>
-      <View style={[t.wFull]}>
-        <View style={[t.wFull, t.itemsCenter]}>
-          <View style={[t.w16, t.h16, t.bgBlack, t.rounded, t.bgGray400]}></View>
-          <Space height={20} />
-          <Text size="16" label={slugName} style={[t.textBlack]} />
-        </View>
-        <Space height={40} />
+    <KeyboardArea>
+      <View style={[t.wFull, t.hFull, t.justifyCenter, t.pX6]}>
+        <View style={[t.wFull]}>
+          <View style={[t.wFull, t.itemsCenter]}>
+            <View style={[t.w16, t.h16, t.bgBlack, t.rounded, t.bgGray400]}></View>
+            <Space height={20} />
+            <Text size="16" label={slugName} style={[t.textBlack]} />
+          </View>
+          <Space height={40} />
           <Input label="username" onChange={t => setUsername(t)} />
           <Space height={20} />
           <Input label="password" onChange={t => setPassword(t)} password />
@@ -58,8 +60,9 @@ const LoginForm = () => {
             onClick={onSubmit}
             // onClick={() => navigate('Students')}
           />
+        </View>
       </View>
-    </View>
+    </KeyboardArea>
   )
 }
 
