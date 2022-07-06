@@ -1,0 +1,1 @@
+https://github.com/expo/fyi/blob/main/first-android-submission.md

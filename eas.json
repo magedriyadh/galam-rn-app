@@ -1,0 +1,28 @@
+{
+  "cli": {
+    "version": ">= 0.54.1"
+  },
+  "build": {
+    "preview": {
+      "distribution": "internal"
+    },
+    "preview2": {
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal"
+    },
+    "production": {}
+  },
+  "submit": {
+    "production": {
+      "android": {
+        "serviceAccountKeyPath": "./pc-api-5592549139321977530-741-8237c10cf987.json",
+        "track": "internal"
+      }
+    }
+  }
+}
