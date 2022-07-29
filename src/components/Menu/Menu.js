@@ -1,26 +1,23 @@
 import React from 'react'
 import { Text, View, TouchableOpacity } from 'react-native'
 import { t } from 'react-native-tailwindcss';
+import {Picker} from '@react-native-picker/picker';
 
 
 const Menu = () => {
   const [open, setOpen] = React.useState();
+  const [selectedLanguage, setSelectedLanguage] = React.useState();
 
   return (
-    <View style={[t.relative]}>
-      <TouchableOpacity
-        onPress={() => setOpen(true)}
-      >
-        <View>
-          <Text>menu</Text>
-        </View>
-      </TouchableOpacity>
-      {open && (
-        <View style={[t.absolute, t.bottom0, t.bgWhite, t.border, t.borderGray400, { top: 10, zIndex: 999 }]}>
-          <Text>menu22</Text>
-        </View>
-      )}
-    </View>
+    <Picker
+      mode='dropdown'
+      selectedValue={selectedLanguage}
+      onValueChange={(itemValue, itemIndex) =>
+        setSelectedLanguage(itemValue)
+      }>
+      <Picker.Item label="Java" value="java" />
+      <Picker.Item label="JavaScript" value="js" />
+    </Picker>
   )
 }
 
