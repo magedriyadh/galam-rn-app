@@ -11,36 +11,34 @@ const TimeTable = ({
   body,
 }) => {
   return (
-    <Container.Body>
-      <Box>
-        <View style={[t.p3]}>
-          <Text size="14" label="Time Table" />
-        </View>
-        {/* <Menu  /> */}
-        <Table
-          headers={[
-            {
-              label: '#',
-              width: 20,
-            },
-            {
-              label: i18n.t('amount'),
-            },
-            {
-              label: i18n.t('date'),
-            },
-            {
-              label: i18n.t('status'),
-            }
-          ]}
-          body={[
-            ['text1', 'text2', 'text3', 'text4'],
-            ['text1', 'text2', 'text3', 'text4'],
-            ['text1', 'text2', 'text3', 'text4'],
-          ]}
-        />
-      </Box>
-    </Container.Body>
+    <Box>
+      <View style={[t.p3]}>
+        <Text size="14" label="Time Table" />
+      </View>
+      {/* <Menu  /> */}
+      <Table
+        headers={[
+          {
+            label: '#',
+            width: 20,
+          },
+          {
+            label: i18n.t('amount'),
+          },
+          {
+            label: i18n.t('date'),
+          },
+          {
+            label: i18n.t('status'),
+          }
+        ]}
+        body={[
+          ['text1', 'text2', 'text3', 'text4'],
+          ['text1', 'text2', 'text3', 'text4'],
+          ['text1', 'text2', 'text3', 'text4'],
+        ]}
+      />
+    </Box>
   )
 }
 

@@ -18,9 +18,10 @@ const colors = {
 }
 
 const fontWeight = {
-  'light': 'Roboto_300Light',
-  'regular': 'Roboto_400Regular',
-  'medium': 'Roboto_500Medium',
+  'light': 'NotoSansArabicLight',
+  'regular': 'NotoSansArabicRegular',
+  'medium': 'NotoSansArabicMedium',
+  'bold': 'NotoSansArabicSemiBold',
 }
 
 const Text = ({

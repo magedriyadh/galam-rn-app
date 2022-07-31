@@ -1,4 +1,5 @@
 import React from 'react'
+import { View } from 'react-native'
 import { useSelector } from 'react-redux'
 import { Space, Container } from '../../components'
 import i18n from '../../translation/i18n'
@@ -10,7 +11,7 @@ const Information = () => {
   const guardian = student?.guardian || {};
 
   return (
-    <Container.Body>
+    <View>
       <DetailsBox
         title={i18n.t('personal_information')}
         list={[
@@ -82,8 +83,8 @@ const Information = () => {
           },
         ]}
       />
-      <Space height={40} />
-    </Container.Body>
+    <Space height={50} />
+  </View>
   )
 }
 

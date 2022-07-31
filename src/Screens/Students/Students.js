@@ -28,47 +28,46 @@ const Students = () => {
       />
       <Container.Body>
         <Box paddingX>
-            {students.map((student, i) => (
-              <TouchableHighlight
-                key={i}
-                activeOpacity={0.6}
-                underlayColor="#fff"
-                onPress={() => {
-                  dispatch(setStudent(student))
-                  navigate('StudentDetail')
-                }}
+          {students.map((student, i) => (
+            <TouchableHighlight
+              key={i}
+              activeOpacity={0.6}
+              underlayColor="#fff"
+              onPress={() => {
+                dispatch(setStudent(student))
+                navigate('StudentDetail')
+              }}
+            >
+              <View
+                style={[
+                  t.flexRow,
+                  t.itemsCenter,
+                  t.pY5,
+                  i !== 0 && t.borderT,
+                  t.borderGray400
+                ]}
               >
-                <View
-                  style={[
-                    t.flexRow,
-                    t.itemsCenter,
-                    t.pY5,
-                    i !== 0 && t.borderT,
-                    t.borderGray400
-                  ]}
-                >
-                  <Image
-                    style={[t.w12, t.h12, t.bgBlue100, t.roundedFull, t.border, t.borderGray200]}
-                    source={{
-                      uri: student.avatar_url,
-                    }}
-                  />
-                  {/* <View style={[t.w12, t.h12, t.bgBlue100, t.roundedFull]} /> */}
-                  <View style={[t.mX5]}>
-                    <Text size="14" label={student.name} bold />
-                    <Space height={5} />
-                    <View style={[t.flexRow]}>
-                      <Text size="12" label={student.admission_number} />
-                      <Text size="12" label="," />
-                      <Space width={5} />
-                      <Text size="12" label={student.section} />
-                      <Text size="12" label="," />
-                      <Text size="12" label={student.level} />
-                    </View>
+                <Image
+                  style={[t.w12, t.h12, t.bgBlue100, t.roundedFull, t.border, t.borderGray200]}
+                  source={{
+                    uri: student.avatar_url,
+                  }}
+                />
+                {/* <View style={[t.w12, t.h12, t.bgBlue100, t.roundedFull]} /> */}
+                <View style={[t.mX5]}>
+                  <Text size="14" label={student.name} bold />
+                  <View style={[t.flexRow]}>
+                    <Text size="12" label={student.admission_number} />
+                    <Text size="12" label="," />
+                    <Space width={5} />
+                    <Text size="12" label={student.section} />
+                    <Text size="12" label="," />
+                    <Text size="12" label={student.level} />
                   </View>
                 </View>
-              </TouchableHighlight>
-            ))}
+              </View>
+            </TouchableHighlight>
+          ))}
         </Box>
       </Container.Body>
     </Container>

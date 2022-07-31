@@ -64,10 +64,11 @@ const StudentDetail = () => {
           </View>
         )}
       />
-      {activeTab === 'information' && <Information />}
-      {activeTab === 'installments' && <Installments />}
-      {activeTab === 'time_table' && <TimeTable />}
-      
+      <Container.Body>
+        {activeTab === 'information' && <Information />}
+        {activeTab === 'installments' && <Installments />}
+        {activeTab === 'time_table' && <TimeTable />}
+      </Container.Body>
     </Container>
   )
 }

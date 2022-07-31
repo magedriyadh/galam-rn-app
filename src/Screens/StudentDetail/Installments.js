@@ -16,32 +16,30 @@ const Installments = () => {
   }, []);
 
   return (
-    <Container.Body>
-      <Box>
-        <Table
-          headers={[
-            {
-              label: '#',
-              width: 50,
-            },
-            {
-              label: i18n.t('amount'),
-            },
-            {
-              label: i18n.t('date'),
-            },
-            {
-              label: i18n.t('status'),
-            }
-          ]}
-          body={installments.map((ins, i) => ([i + 1, ins.amount, ins.date, ins.status_i18n]))}
-        />
-        <View style={[t.bgGray100, t.pX3, t.pY2]}>
-        <Text size={12} label={`Amount paid: ${total_paid_installments}`} />
-        <Text size={12} label={`Remaining amount: ${remaining_amount}`} />
-        </View>
-      </Box>
-    </Container.Body>
+    <Box>
+      <Table
+        headers={[
+          {
+            label: '#',
+            width: 50,
+          },
+          {
+            label: i18n.t('amount'),
+          },
+          {
+            label: i18n.t('date'),
+          },
+          {
+            label: i18n.t('status'),
+          }
+        ]}
+        body={installments.map((ins, i) => ([i + 1, ins.amount, ins.date, ins.status_i18n]))}
+      />
+      <View style={[t.bgGray100, t.pX3, t.pY2]}>
+      <Text size={12} label={`Amount paid: ${total_paid_installments}`} />
+      <Text size={12} label={`Remaining amount: ${remaining_amount}`} />
+      </View>
+    </Box>
   )
 }
 
