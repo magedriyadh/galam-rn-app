@@ -1,12 +1,11 @@
 import React from 'react'
 import { View } from 'react-native';
 import { t } from 'react-native-tailwindcss'
-import { KeyboardAvoidingView } from 'react-native';
 import { useSelector } from 'react-redux';
-import validate from '../../apis/validate';
 import { Text, Button, Space } from '../../components';
 import SlugInput from './SlugInput';
 import KeyboardArea from '../../components/KeyboardArea';
+import i18n from '../../translation/i18n';
 
 
 const SlugStep = ({
@@ -19,15 +18,16 @@ const SlugStep = ({
     <KeyboardArea>
       <View style={[t.hFull, t.justifyCenter, t.itemsCenter, t.bgPrimary]}>
         <View style={[t.wFull, t.pX12]}>
-            <Text size={18} color="white" label="Login" />
-            <SlugInput onChagne={t => setSlug(t)} autoCapitalize="none" />
-            <Space height={30} />
-            <Button
-              variant="outlined"
-              label="Submit"
-              onClick={() => onSubmit(slug)}
-              disabled={fetching}
-            />
+          <Text size={16} color="white" label={i18n.t('type_school_name')} />
+          <Space height={20} />
+          <SlugInput onChagne={t => setSlug(t)} autoCapitalize="none" />
+          <Space height={30} />
+          <Button
+            variant="outlined"
+            label={i18n.t('submit')}
+            onClick={() => onSubmit(slug)}
+            disabled={fetching}
+          />
         </View>
       </View>
     </KeyboardArea>

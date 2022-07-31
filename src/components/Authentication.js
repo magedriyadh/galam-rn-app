@@ -1,22 +1,23 @@
 import React from 'react'
 import { useNavigation } from '@react-navigation/native';
-import { View, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator, I18nManager } from 'react-native';
 import { t } from 'react-native-tailwindcss';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from '../redux/auth/action';
+import i18n from '../translation/i18n';
 
 const Authentication = ({
   children
 }) => {
-  const { user, fetching } = useSelector(state => state.auth);
+  const { fetching } = useSelector(state => state.auth);
   const { navigate } = useNavigation();
 
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     dispatch(getUser()).unwrap()
-    .then(() => navigate('Students'))
-    .catch(() => navigate('Login'))
+      .then(() => navigate('Students'))
+      .catch(() => navigate('Login'))
   }, [])
 
   return (
@@ -29,8 +30,6 @@ const Authentication = ({
       )}
     </>
   );
-
-  return children
 }
 
 export default Authentication

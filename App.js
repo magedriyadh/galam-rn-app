@@ -1,16 +1,16 @@
 import React from 'react'
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Login from './src/Screens/Login';
 import Students from './src/Screens/Students';
 import StudentDetail from './src/Screens/StudentDetail';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { View, Text } from 'react-native';
-import useFonts from './src/hooks/useFonts';
-// import useStorage from './src/hooks/useStorage';
-import { store } from './src/redux/store'
+import { View, Text, I18nManager } from 'react-native';
 import { Provider } from 'react-redux'
+import useFonts from './src/hooks/useFonts';
+import { store } from './src/redux/store'
 import Authentication from './src/components/Authentication';
+import './src/translation/i18n';
+
 
 const Stack = createNativeStackNavigator();
 

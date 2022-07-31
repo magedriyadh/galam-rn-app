@@ -2,6 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 import { useSelector } from 'react-redux'
 import { Text, Space, Container } from '../../components'
+import i18n from '../../translation/i18n'
 import DetailsBox from './components/DetailsBox'
 
 
@@ -12,14 +13,14 @@ const Information = () => {
   return (
     <Container.Body>
       <DetailsBox
-        title="Personal information"
+        title={i18n.t('personal_information')}
         list={[
           {
-            label: 'Student full name',
+            label: i18n.t('student_full_name'),
             value: student.name
           },
           {
-            label: 'Admission number',
+            label: i18n.t('admission_number'),
             value: student.admission_number
           },
           // {
@@ -27,53 +28,53 @@ const Information = () => {
           //   value: student.gender
           // },
           {
-            label: 'Nationality',
+            label:  i18n.t('nationality'),
             value: student.nationality?.name
           },
           {
-            label: 'Religion',
+            label: i18n.t('religion'),
             value: student.religion_i18n
           },
           {
-            label: 'Joining date',
+            label: i18n.t('joining_date'),
             value: student.joining_date
           },
           {
-            label: 'Birth date',
+            label: i18n.t('birth_date'),
             value: student.birth_date
           },
           {
-            label: 'Birth place',
+            label: i18n.t('birth_place'),
             value: student.birth_place
           },
           {
-            label: 'Educational level',
+            label: i18n.t('educational_level'),
             value: `${student.section}, ${student.level}`
           },
           {
-            label: 'Location',
+            label: i18n.t('location'),
             value: student.location?.name,
           },
           {
-            label: 'Address',
+            label: i18n.t('address'),
             value: student.address,
           },
         ]}
       />
       <Space height={20} />
       <DetailsBox
-        title="Guardian Information"
+        title={i18n.t('guardian_information')}
         list={[
           {
-            label: 'Full Parent Name',
+            label: i18n.t('full_name'),
             value: guardian.name
           },
           {
-            label: 'Email',
+            label: i18n.t('email'),
             value: guardian.email
           },
           {
-            label: "Father's number",
+            label: i18n.t('father_number'),
             value: guardian.father_mobile,
           },
           {
@@ -81,7 +82,7 @@ const Information = () => {
             value: guardian.mother_mobile,
           },
           {
-            label: 'Emergency number',
+            label: i18n.t('emergency_number'),
             value: guardian.emergency_number,
           },
         ]}

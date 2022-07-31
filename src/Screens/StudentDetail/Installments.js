@@ -4,6 +4,7 @@ import { t } from 'react-native-tailwindcss'
 import { useDispatch, useSelector } from 'react-redux'
 import { Box, Container, Text, Table, Space } from '../../components'
 import { feesDetailsShow } from '../../redux/feesDetails/action'
+import i18n from '../../translation/i18n'
 
 const Installments = () => {
   const { student } = useSelector(state => state.students)
@@ -14,7 +15,6 @@ const Installments = () => {
     dispatch(feesDetailsShow(student.id))
   }, []);
 
-  console.log(installments.map((ins, i) => ([i + 1, ins.amount, ins.date, ins.status_i18n])))
   return (
     <Container.Body>
       <Box>
@@ -25,13 +25,13 @@ const Installments = () => {
               width: 50,
             },
             {
-              label: 'Amount',
+              label: i18n.t('amount'),
             },
             {
-              label: 'Date',
+              label: i18n.t('date'),
             },
             {
-              label: 'status',
+              label: i18n.t('status'),
             }
           ]}
           body={installments.map((ins, i) => ([i + 1, ins.amount, ins.date, ins.status_i18n]))}

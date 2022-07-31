@@ -3,6 +3,7 @@ import { t } from 'react-native-tailwindcss'
 import { View } from 'react-native'
 import { Box, Container, Text, Space, Table } from '../../components'
 import Menu from '../../components/Menu'
+import i18n from '../../translation/i18n'
 
 
 const TimeTable = ({
@@ -23,13 +24,13 @@ const TimeTable = ({
               width: 20,
             },
             {
-              label: 'Amount',
+              label: i18n.t('amount'),
             },
             {
-              label: 'Date',
+              label: i18n.t('date'),
             },
             {
-              label: 'status',
+              label: i18n.t('status'),
             }
           ]}
           body={[

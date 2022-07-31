@@ -8,21 +8,7 @@ import TimeTable from './TimeTable';
 import { useRoute } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { studentLoad } from '../../redux/students/action';
-
-const tabs = [
-  {
-    label: 'Information',
-    key: 'information',
-  },
-  {
-    label: 'Installments',
-    key: 'installments',
-  },
-  {
-    label: 'Time table',
-    key: 'time_table',
-  },
-];
+import i18n from '../../translation/i18n';
 
 const StudentDetail = () => {
   const [activeTab, setActiveTab] = React.useState('information')
@@ -55,7 +41,20 @@ const StudentDetail = () => {
             </View>
             <Space height={20} />
             <Tabs
-              tabs={tabs}
+              tabs={[
+                {
+                  label: i18n.t('information'),
+                  key: 'information',
+                },
+                {
+                  label: i18n.t('installments'),
+                  key: 'installments',
+                },
+                {
+                  label: i18n.t('time_table'),
+                  key: 'time_table',
+                },
+              ]}
               active={activeTab}
               onPress={key => {
                 // setUser(key)

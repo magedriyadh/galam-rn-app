@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../redux/auth/action';
 import { useNavigation } from '@react-navigation/native';
 import KeyboardArea from '../../components/KeyboardArea';
+import i18n from '../../translation/i18n';
 
 const LoginForm = () => {
   const [username, setUsername] = React.useState();
@@ -31,7 +32,7 @@ const LoginForm = () => {
   
   React.useEffect(() => {
     if (error?.error) {
-      Alert.alert('خطأ', error.error)
+      Alert.alert(i18n.t('wrong'), error.error)
     }
   }, [error])
 
@@ -51,14 +52,13 @@ const LoginForm = () => {
             <Text size="16" label={slugName} style={[t.textBlack]} />
           </View>
           <Space height={40} />
-          <Input label="username" onChange={t => setUsername(t)} />
+          <Input label={i18n.t('username')} onChange={t => setUsername(t)} />
           <Space height={20} />
-          <Input label="password" onChange={t => setPassword(t)} password />
+          <Input label={i18n.t('password')} onChange={t => setPassword(t)} password />
           <Space height={20} />
           <Button
-            label="Sign In"
+            label={i18n.t('sign_in')}
             onClick={onSubmit}
-            // onClick={() => navigate('Students')}
           />
         </View>
       </View>
