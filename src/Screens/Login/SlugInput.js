@@ -10,10 +10,10 @@ const SlugInput = ({
   const [value, setValue] = React.useState('');
 
   return (
-    <View style={[t.borderB, { borderBottomColor: '#D9DBE9'}, t.flexRow, t.itemsCenter]}>
+    <View style={[t.borderB, { borderBottomColor: '#D9DBE9'}, t.flexRow, t.itemsCenter, t.directionLtr]}>
       <View style={[t.flexGrow]}>
         <TextInput
-          style={[t.h10, t.textWhite, t.textRight, t.textXl]}
+          style={[t.h10, t.textWhite, t.textRight, t.textXl ]}
           placeholder="School Name"
           onChangeText={value => {
             setValue(value);

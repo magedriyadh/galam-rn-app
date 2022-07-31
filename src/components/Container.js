@@ -23,12 +23,13 @@ export const Body = ({
 }) => {
   // const ViewType = isScrollView ? ScrollView : View;
   return (
-    <ScrollView
-      style={[t.pX5, t.wFull, t.hFull]}
-      {...props}
-     >
-      {children}
-    </ScrollView>
+    <View style={[t.pX5, t.wFull, t.hFull]}>
+      <ScrollView
+        {...props}
+      >
+        {children}
+      </ScrollView>
+    </View>
   )
 }
 

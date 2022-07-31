@@ -1,7 +1,6 @@
 import React from 'react'
-import { View } from 'react-native'
 import { useSelector } from 'react-redux'
-import { Text, Space, Container } from '../../components'
+import { Space, Container } from '../../components'
 import i18n from '../../translation/i18n'
 import DetailsBox from './components/DetailsBox'
 
@@ -23,10 +22,6 @@ const Information = () => {
             label: i18n.t('admission_number'),
             value: student.admission_number
           },
-          // {
-          //   label: 'Gender',
-          //   value: student.gender
-          // },
           {
             label:  i18n.t('nationality'),
             value: student.nationality?.name

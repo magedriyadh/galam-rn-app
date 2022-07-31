@@ -20,6 +20,18 @@ const Authentication = ({
       .catch(() => navigate('Login'))
   }, [])
 
+  React.useEffect(() => {
+    console.log(i18n.language, 'language')
+
+    if(i18n.language === 'ar') {
+      I18nManager.forceRTL(true);
+      I18nManager.allowRTL(true);
+    } else {
+      I18nManager.forceRTL(false);
+      I18nManager.allowRTL(false);
+    }
+  }, [i18n.language]);
+
   return (
     <>
       {children}

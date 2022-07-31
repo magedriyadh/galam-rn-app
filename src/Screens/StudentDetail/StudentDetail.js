@@ -5,10 +5,10 @@ import { Header, Container, Text, Space, SearchBox, Tabs } from '../../component
 import Installments from './Installments';
 import Information from './Information';
 import TimeTable from './TimeTable';
-import { useRoute } from '@react-navigation/native';
 import { useDispatch, useSelector } from 'react-redux';
 import { studentLoad } from '../../redux/students/action';
 import i18n from '../../translation/i18n';
+
 
 const StudentDetail = () => {
   const [activeTab, setActiveTab] = React.useState('information')
@@ -16,7 +16,7 @@ const StudentDetail = () => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(studentLoad(student.id || 41))
+    dispatch(studentLoad(student.id))
   }, []);
 
   return (

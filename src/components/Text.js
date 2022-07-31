@@ -35,6 +35,7 @@ const Text = ({
       style={[
         fontSize[size],
         colors[color],
+        [t.textLeft],
         ...style,
         { fontFamily: fontWeight[weight] }
       ]}

@@ -1,16 +1,17 @@
 import React from 'react'
 import axios from 'axios';
+import i18n from '../translation/i18n';
 
 const maxAge = 20 * 1000;
 
 const http = axios.create({
-  baseURL: 'http://api.dev.galam.co/v1',
+  baseURL: 'https://api.galam.co/v1',
   headers: {
     'Content-Type': 'application/json',
     Accept: 'application/json',
     // Authorization: '',
     // slug: '',
-    locale: 'ar',
+    locale: i18n.language || 'ar',
   },
   // adapter: cacheAdapterEnhancer(axios.defaults.adapter, {
   //   enabledByDefault: false,
