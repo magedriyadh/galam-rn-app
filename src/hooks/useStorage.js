@@ -73,3 +73,12 @@ export const getLang = async () => {
     console.error(e)
   }
 }
+
+export const removeLang = async () => {
+  try {
+    const value = await AsyncStorage.removeItem('@lang')
+    return value;
+  } catch(e) {
+    console.error(e)
+  }
+}

@@ -10,6 +10,7 @@ import useFonts from './src/hooks/useFonts';
 import { store } from './src/redux/store'
 import Authentication from './src/components/Authentication';
 import './src/translation/i18n';
+import { removeLang } from './src/hooks/useStorage';
 
 
 const Stack = createNativeStackNavigator();
@@ -26,6 +27,12 @@ const App = () => {
       </View>
     )
   }
+
+  const remove = async () => {
+    await removeLang()
+  }
+
+  // remove()
 
   return (
     <Provider store={store}>

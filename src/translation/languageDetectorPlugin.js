@@ -1,5 +1,4 @@
-import * as Localization from "expo-localization";
-import { getLang } from "../hooks/useStorage";
+import { getLang, setLan } from "../hooks/useStorage";
 
 
 export const languageDetectorPlugin = {
@@ -15,8 +14,8 @@ export const languageDetectorPlugin = {
         return callback(language);
       } else {
         //if language was not stored yet, use device's locale
-        setLan(Localization.locale)
-        return callback(Localization.locale);
+        await setLan('ar')
+        return callback('ar');
       }
     } catch (error) {
       console.log("Error reading language", error);
